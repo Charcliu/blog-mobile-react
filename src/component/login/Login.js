@@ -29,7 +29,8 @@ export default class Login extends Component {
   login() {
     this.postRequestParam("/blog/login", this.state).then(res => {
       if (res) {
-        Toast.success("登录成功！");
+        Toast.success("登录成功！", 1);
+        this.props.history.push("/blogList");
       } else {
         Toast.fail("用户名密码错误！");
       }
