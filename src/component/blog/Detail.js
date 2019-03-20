@@ -12,7 +12,11 @@ export default class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      header: {},
+      header: {
+        time: "",
+        title: "",
+        vistor_count: ""
+      },
       content: {
         content: ""
       }

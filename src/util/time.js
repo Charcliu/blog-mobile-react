@@ -1,5 +1,9 @@
 const timeConvert = time => {
-  return new Date(time).toLocaleString();
+  if (time) {
+    return new Date(time).toLocaleString();
+  } else {
+    return "";
+  }
 };
 
 export { timeConvert };
