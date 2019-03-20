@@ -11,6 +11,9 @@ export default class Login extends Component {
     return (
       <h1>
         Login
+        <div style={{ width: "5rem", height: "30px", backgroundColor: "red" }}>
+          1
+        </div>
         <Button type="primary">primary</Button>
       </h1>
     );
