@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { BrowserRouter } from "react-router-dom";
+import PrimaryLayout from "./component/PrimaryLayout";
 import "./App.css";
 
 class App extends Component {
@@ -7,9 +9,7 @@ class App extends Component {
       username: "ChangLau",
       password: "wff1993lc"
     })
-      .then(res => {
-        alert("login success");
-      })
+      .then(res => {})
       .catch(err => {
         alert(err);
       });
@@ -17,9 +17,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>My Blog</h1>
-      </div>
+      <BrowserRouter>
+        <PrimaryLayout />
+      </BrowserRouter>
     );
   }
 }
