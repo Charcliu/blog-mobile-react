@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Component } from "react";
+import { Toast } from "antd-mobile";
 
 let base = "/api";
 
@@ -9,7 +10,7 @@ axios.interceptors.request.use(
     return config;
   },
   err => {
-    console.log("请求超时");
+    Toast.fail("请求超时");
     return Promise.reject(err);
   }
 );
@@ -17,15 +18,15 @@ axios.interceptors.request.use(
 // 返回后拦截
 axios.interceptors.response.use(
   data => {
-    return data;
+    return data.data;
   },
   err => {
     if (err.response.status === 504 || err.response.status === 404) {
-      console.log("服务器被吃了⊙﹏⊙∥");
+      Toast.fail("服务器被吃了⊙﹏⊙∥");
     } else if (err.response.status === 401) {
-      console.log("登录信息失效⊙﹏⊙∥");
+      Toast.fail("登录信息失效⊙﹏⊙∥");
     } else if (err.response.status === 500) {
-      console.log("服务器开小差了⊙﹏⊙∥");
+      Toast.fail("服务器开小差了⊙﹏⊙∥");
     }
     return Promise.reject(err);
   }
