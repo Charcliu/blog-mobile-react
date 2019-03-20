@@ -25,7 +25,7 @@ axios.interceptors.response.use(
       Toast.fail("服务器被吃了⊙﹏⊙∥");
     } else if (err.response.status === 401) {
       Toast.fail("登录信息失效⊙﹏⊙∥");
-    } else if (err.response.status === 500) {
+    } else if (err.response.status === 500 || err.response.status === 400) {
       Toast.fail("服务器开小差了⊙﹏⊙∥");
     }
     return Promise.reject(err);
@@ -75,7 +75,7 @@ const get = url => {
 };
 
 const multiple = function(requsetArray, callback) {
-  axios.all(requsetArray).then(axios.spread(callback));
+  return axios.all(requsetArray).then(axios.spread(callback));
 };
 
 Component.prototype.get = get;

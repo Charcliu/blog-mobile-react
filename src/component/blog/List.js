@@ -13,8 +13,8 @@ export default class BlogList extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    console.log(e);
+  handleClick(item) {
+    this.props.history.push("/blogDetail/" + item.id);
   }
 
   componentWillMount() {
@@ -34,7 +34,7 @@ export default class BlogList extends Component {
             extra={"访客:" + item.vistor_count}
             align="top"
             multipleLine
-            onClick={this.handleClick}
+            onClick={e => this.handleClick(item)}
           >
             {item.title} <Brief>{timeConvert(item.time)}</Brief>
           </Item>
