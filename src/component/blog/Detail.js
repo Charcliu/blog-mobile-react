@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { List } from "antd-mobile";
 import { timeConvert } from "../../util/time";
+import marked from "marked";
+import hljs from "highlight.js";
+import "highlight.js/styles/atom-one-light.css";
+import "../../css/detail.css";
 
 const Item = List.Item;
 
@@ -9,7 +13,9 @@ export default class Detail extends Component {
     super(props);
     this.state = {
       header: {},
-      content: {}
+      content: {
+        content: ""
+      }
     };
   }
 
@@ -33,6 +39,10 @@ export default class Detail extends Component {
   }
 
   render() {
+    marked.setOptions({
+      highlight: code => hljs.highlightAuto(code).value
+    });
+    const output = marked(this.state.content.content);
     return (
       <>
         <List
@@ -43,7 +53,7 @@ export default class Detail extends Component {
             {this.state.header.title}
           </Item>
         </List>
-        <p>{this.state.content.content}</p>
+        <div className="content" dangerouslySetInnerHTML={{ __html: output }} />
       </>
     );
   }
