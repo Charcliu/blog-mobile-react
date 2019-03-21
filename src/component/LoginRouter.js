@@ -8,7 +8,6 @@ export default class LoginRouter extends Component {
       auth: false, // 表示是否认证通过
       hasAuthed: false // 表示是否向服务器发送过认证请求
     };
-    console.log("contructor");
   }
 
   componentWillMount() {

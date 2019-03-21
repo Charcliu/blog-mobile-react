@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { List } from "antd-mobile";
+import { List, Progress } from "antd-mobile";
 import { timeConvert } from "../../util/time";
+import HocLoading from "../hoc/HocLoading";
 import marked from "marked";
 import hljs from "highlight.js";
 import "highlight.js/styles/atom-one-light.css";
@@ -8,7 +9,7 @@ import "../../css/detail.css";
 
 const Item = List.Item;
 
-export default class Detail extends Component {
+class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,6 +39,7 @@ export default class Detail extends Component {
           header,
           content
         });
+        this.props.stopLoading();
       }
     );
   }
@@ -49,6 +51,10 @@ export default class Detail extends Component {
     const output = marked(this.state.content.content);
     return (
       <>
+        {this.props.showPercent && (
+          <Progress percent={this.props.percent} position="fixed" />
+        )}
+
         <List
           renderHeader={() => timeConvert(this.state.header.time)}
           className="my-list"
@@ -62,3 +68,5 @@ export default class Detail extends Component {
     );
   }
 }
+
+export default HocLoading(Detail);

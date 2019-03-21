@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { List, Progress } from "antd-mobile";
 import { timeConvert } from "../../util/time";
+import HocLoading from "../hoc/HocLoading";
 const Item = List.Item;
 const Brief = Item.Brief;
 
-export default class BlogList extends Component {
+class BlogList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      blogList: [],
-      percent: 0,
-      showPercent: true
+      blogList: []
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -20,30 +19,19 @@ export default class BlogList extends Component {
   }
 
   componentWillMount() {
-    let interval = setInterval(() => {
-      this.setState((prevState, props) => ({
-        percent: prevState.percent + 20
-      }));
-    }, 100);
     this.postRequestBody("/blog/getMyBlog", {}).then(res => {
-      clearInterval(interval);
       this.setState({
-        blogList: res,
-        percent: 100
+        blogList: res
       });
-      setTimeout(() => {
-        this.setState({
-          showPercent: false
-        });
-      }, 500);
+      this.props.stopLoading();
     });
   }
 
   render() {
     return (
       <>
-        {this.state.showPercent && (
-          <Progress percent={this.state.percent} position="fixed" />
+        {this.props.showPercent && (
+          <Progress percent={this.props.percent} position="fixed" />
         )}
 
         <List renderHeader={() => "博客列表"} className="my-list">
@@ -63,3 +51,5 @@ export default class BlogList extends Component {
     );
   }
 }
+
+export default HocLoading(BlogList);
