@@ -6,3 +6,76 @@ code {
 .content {
   padding: 0.4rem;
 }
+
+.content > ul {
+  list-style: circle;
+  margin: -5px 0 20px 20px;
+}
+
+.content > ul > li {
+  line-height: 30px;
+  color: #2f2f2f;
+  font-size: 16px;
+}
+
+.content blockquote > p {
+  padding: 10px;
+  margin: 15px 0px;
+  background-color: #f7f7f7;
+  border-left: 6px solid #b4b4b4;
+  word-break: break-word !important;
+  word-break: break-all;
+  font-size: 16px;
+  font-weight: 400;
+  /* line-height: 30px; */
+}
+
+.content pre {
+  margin-bottom: 20px;
+  padding: 15px;
+  font-size: 13px;
+  word-wrap: normal;
+  word-break: break-word !important;
+  word-break: break-all;
+  white-space: pre;
+  overflow: auto;
+  border-radius: 4px;
+  color: #abb2bf;
+  background: #282c34;
+}
+
+.content table {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  border-left: none;
+  word-break: normal;
+}
+
+.content thead {
+  color: #2f2f2f;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+.content th {
+  padding: 8px;
+  border: 1px solid #ddd;
+  line-height: 20px;
+  vertical-align: middle;
+  text-align: inherit;
+}
+
+.content td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  line-height: 20px;
+  vertical-align: middle;
+  text-align: inherit;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: hsla(0, 0%, 71%, 0.1);
+}
