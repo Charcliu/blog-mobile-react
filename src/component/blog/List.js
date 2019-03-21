@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Progress, ActivityIndicator } from "antd-mobile";
+import { List, Progress } from "antd-mobile";
 import { timeConvert } from "../../util/time";
 const Item = List.Item;
 const Brief = Item.Brief;
