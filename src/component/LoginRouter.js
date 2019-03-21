@@ -5,8 +5,8 @@ export default class LoginRouter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      auth: false, // 表示是否认证通过
-      hasAuthed: false // 表示是否向服务器发送过认证请求
+      auth: false, // 是否认证通过
+      hasAuthed: false // 是否向服务器发送过认证请求
     };
   }
 
