@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "./login/Login";
 import List from "./blog/List";
 import Detail from "./blog/Detail";
+import LoginRouter from "./LoginRouter";
 
 export default class PrimaryLayout extends Component {
   render() {
@@ -11,8 +12,8 @@ export default class PrimaryLayout extends Component {
         <Switch>
           <Route exact path="/" render={() => <Redirect to="/login" />} />
           <Route path="/login" component={Login} />
-          <Route path="/blogList" component={List} />
-          <Route path="/blogDetail/:blogId" component={Detail} />
+          <LoginRouter path="/blogList" component={List} />
+          <LoginRouter path="/blogDetail/:blogId" component={Detail} />
         </Switch>
       </div>
     );
