@@ -1,0 +1,4 @@
+.state-refreshing .pull-load-head-default i,
+.state-loading .pull-load-footer-default i {
+  font-size: 0.7rem;
+}

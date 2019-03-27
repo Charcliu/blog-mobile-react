@@ -4,6 +4,7 @@ import { timeConvert } from "../../util/time";
 import HocLoading from "../hoc/HocLoading";
 import ReactPullLoad, { STATS } from "react-pullload";
 import "../../../node_modules/react-pullload/dist/ReactPullLoad.css";
+import "../../css/list.css";
 
 const Item = List.Item;
 const Brief = Item.Brief;
