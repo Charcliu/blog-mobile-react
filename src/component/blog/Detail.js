@@ -33,6 +33,9 @@ class Detail extends Component {
         }),
         this.postRequestParam("/blog/getBlogDeitailById", {
           blogId: this.props.match.params.blogId
+        }),
+        this.postRequestParam("/blog/addVistorCount", {
+          blogId: this.props.match.params.blogId
         })
       ],
       (header, content) => {
