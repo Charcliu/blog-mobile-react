@@ -9,10 +9,17 @@ export default WrappedComponent => {
         showPercent: true,
         interval: 0
       };
+      this.startLoading = this.startLoading.bind(this);
       this.stopLoading = this.stopLoading.bind(this);
     }
 
-    componentWillMount() {
+    componentWillMount() {}
+
+    startLoading() {
+      this.setState({
+        showPercent: true,
+        percent: 0
+      });
       var interval = setInterval(() => {
         if (this.state.percent < 80) {
           this.setState((prevState, props) => ({
@@ -42,6 +49,7 @@ export default WrappedComponent => {
         <WrappedComponent
           {...this.state}
           stopLoading={this.stopLoading}
+          startLoading={this.startLoading}
           {...this.props}
         />
       );

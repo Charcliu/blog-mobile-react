@@ -25,6 +25,7 @@ class Detail extends Component {
   }
 
   componentWillMount() {
+    this.props.startLoading();
     this.multiple(
       [
         this.postRequestParam("/blog/getOneBlogListById", {
